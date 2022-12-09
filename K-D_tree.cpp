@@ -44,6 +44,39 @@ node *insertNode(node *root, vector<double> p, int depth)
     return root;
 }
 
+bool similarityCheck(vector<double> x, vector<double> y)
+{
+    if (x == y)
+    {
+        return true;
+    }
+    return false;
+}
+
+bool searchNode(node *root, vector<double> p, int depth)
+{
+    if (root == NULL)
+    {
+        return false;
+    }
+
+    if (similarityCheck(root->point, p))
+    {
+        return true;
+    }
+
+    int cut_dimension = depth % k;
+
+    if (p[cut_dimension] < root->point[cut_dimension])
+    {
+        return searchNode(root->left, p, depth + 1);
+    }
+    else
+    {
+        return searchNode(root->right, p, depth + 1);
+    }
+}
+
 int main(void)
 {
     freopen("input.txt", "r", stdin);
@@ -60,6 +93,19 @@ int main(void)
         p.push_back(x);
         p.push_back(y);
         root = insertNode(root, p, 0);
+    }
+
+    vector<double> p1;
+    p1.push_back(7);
+    p1.push_back(8.1);
+    bool flag = searchNode(root, p1, 0);
+    if (flag)
+    {
+        cout << "Found" << endl;
+    }
+    else
+    {
+        cout << "Not Found" << endl;
     }
 
     return 0;
