@@ -40,6 +40,7 @@ up_count = 0
 down_count = 0
 for items, support_count in item_count_dict.items():
     if items == up_items:
+        print(items, up_items)
         up_count = support_count
     elif items == down_items:
         down_count = support_count
