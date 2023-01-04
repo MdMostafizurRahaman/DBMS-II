@@ -1,0 +1,8 @@
+r2X
+r3Y
+w3X
+r1Y
+w2X
+w1Y
+w1X 
+end
