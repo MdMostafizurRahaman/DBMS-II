@@ -1,8 +1,9 @@
 from apriory import Apriory
 
 # file_path = "Apriory/retail_dataset.csv"
-file_path = "Apriory/item_set.csv"
-min_support = 3
+# file_path = "Apriory/item_set.csv"
+file_path = "Apriory/book_dataSet.csv"
+min_support = 2
 
 object_apriory = Apriory(min_support)
 
@@ -40,7 +41,6 @@ up_count = 0
 down_count = 0
 for items, support_count in item_count_dict.items():
     if items == up_items:
-        print(items, up_items)
         up_count = support_count
     elif items == down_items:
         down_count = support_count
